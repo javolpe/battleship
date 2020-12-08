@@ -46,4 +46,29 @@ class CellTest < Minitest::Test
     assert_equal cell.empty?, false
   end
 
+  def test_received_shot_attribute_starts_at_false
+    cell = Cell.new("B4")
+
+    assert_equal cell.received_shot, false
+  end
+
+  def test_received_shot_attribute_changes_to_true
+    cell = Cell.new("B4")
+    cell.fire_upon
+
+    assert_equal cell.fired_upon?, true
+  end
+
+
+  def test_fire_upon_method_lowers_health
+    cell = Cell.new("B4")
+    cruiser = Ship.new("Cruiser", 3)
+    cell.place_ship(cruiser)
+    cell.fire_upon
+
+    assert_equal cruiser.health, 2
+  end
+
+
+
 end
