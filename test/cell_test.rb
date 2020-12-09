@@ -69,6 +69,45 @@ class CellTest < Minitest::Test
     assert_equal cruiser.health, 2
   end
 
+  def test_render_prints_period
+    cell = Cell.new("B4")
+
+    assert_equal cell.render, "."
+  end
+
+  def test_render_prints_m
+    cell = Cell.new("B4")
+    cell.fire_upon
+
+    assert_equal cell.render, "M"
+  end
+
+  def test_render_prints_h
+    cell = Cell.new("B4")
+    cruiser = Ship.new("Cruiser", 3)
+    cell.place_ship(cruiser)
+    cell.fire_upon
+
+    assert_equal cell.render, "H"
+  end
+
+  def test_render_prints_x
+    cell = Cell.new("B4")
+    cruiser = Ship.new("Cruiser", 1)
+    cell.place_ship(cruiser)
+    cell.fire_upon
+
+    assert_equal cell.render, "X"
+  end
+
+  def test_render_prints_s
+    cell = Cell.new("B4")
+    cruiser = Ship.new("Cruiser", 3)
+    cell.place_ship(cruiser)
+
+    assert_equal cell.render(true), "S"
+  end
+
 
 
 end

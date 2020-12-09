@@ -22,6 +22,8 @@ class Ship
     end
   end
 
+  "Hi"
+
   def hit
     @health -= 1
   end
