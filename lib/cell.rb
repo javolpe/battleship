@@ -36,5 +36,33 @@ class Cell
       end
   end
 
+  hit = "H"
+  miss = "M"
+  sunk = "X"
+  user_unhit_ship = "S"
+  user_empty_not_fired_upon = "."
+  computer_cell_not_fired_upon = "."
+
+  # def render(user = false)
+  #   if user == false && empty?
+  #     "."
+  #   elsif user == true && empty?
+  # end
+  def render(user = false)
+    if empty? == false && ship.sunk? == true
+      "X"
+    elsif empty? == true && @received_shot == true
+      "M"
+    elsif empty? == false && @received_shot == true
+      "H"
+    elsif user == true && empty? == false && @received_shot == false
+      "S"
+    elsif user == true && @received_shot == false
+      "."
+    elsif user == false && @received_shot == false
+      "."
+    end
+  end
 
 end
+require 'pry'; binding.pry
