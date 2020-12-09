@@ -49,35 +49,20 @@ class Cell
   #   elsif user == true && empty?
   # end
   def render(user = false)
-  #if there is a ship on a cell and
-  #that cell is fired up cell = h
     if empty? == false && ship.sunk? == true
       "X"
-
-  #if a cell is fired upon and no ship is there
-  #render = m
     elsif empty? == true && @received_shot == true
       "M"
-  #if a cell contains a ship with health = 0
-  #renders as an x
     elsif empty? == false && @received_shot == true
       "H"
-  #if a cell belongs to user board and had Ship
-  #and cell has not been fired up renders s
     elsif user == true && empty? == false && @received_shot == false
       "S"
-
-  #if a cell belongs to user board has not been fired upon
-  #and does not have ship render .
     elsif user == true && @received_shot == false
       "."
-
-  #if a cell belongs to compter board and has not been
-  #fired upon, render as .
     elsif user == false && @received_shot == false
       "."
     end
-
   end
 
 end
+require 'pry'; binding.pry
