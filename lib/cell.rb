@@ -51,8 +51,8 @@ class Cell
   def render(user = false)
   #if there is a ship on a cell and
   #that cell is fired up cell = h
-    if empty? == false && @received_shot == true
-      "H"
+    if empty? == false && ship.sunk? == true
+      "X"
 
   #if a cell is fired upon and no ship is there
   #render = m
@@ -60,8 +60,8 @@ class Cell
       "M"
   #if a cell contains a ship with health = 0
   #renders as an x
-    elsif empty? == false && ship.sunk == true
-      "X"
+    elsif empty? == false && @received_shot == true
+      "H"
   #if a cell belongs to user board and had Ship
   #and cell has not been fired up renders s
     elsif user == true && empty? == false && @received_shot == false

@@ -93,8 +93,10 @@ class CellTest < Minitest::Test
 
   def test_render_prints_x
     cell = Cell.new("B4")
-    cruiser = Ship.new("Cruiser", 1)
+    cruiser = Ship.new("Cruiser", 3)
     cell.place_ship(cruiser)
+    cell.fire_upon
+    cell.fire_upon
     cell.fire_upon
 
     assert_equal cell.render, "X"
