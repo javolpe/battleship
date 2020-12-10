@@ -29,4 +29,16 @@ class Board
     }
   end
 
+  def valid_coordinate?(coordinate)
+    cells.keys.include?(coordinate)
+  end
+
+  def valid_placement?(ship, cell_array)
+    if ship.length == cell_array.length
+      true
+    elsif ship.length != cell_array.length
+      false
+    end
+  end
+
 end
