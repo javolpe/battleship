@@ -35,15 +35,13 @@ class Board
 
 
 
-  def valid_placement?(ship, cell_array)
+  def array_equals_ship_length?(ship, cell_array)
     if ship.length == cell_array.length
       true
     elsif ship.length != cell_array.length
       false
     end
-
   end
-
 
   def check_letters_are_the_same?(array)
     letters = []
@@ -64,6 +62,45 @@ class Board
     end
 
     numbers.each_cons(2).all? {|a, b| b == a + 1 }
+  end
+
+  def check_letters_are_consecutive?(array)
+    letters = []
+    array.each do |coordinate|
+      letters << coordinate[0]
+    end
+
+    letters.each_cons(2).all? {|a, b| b.ord == (a.ord + 1)}
+  end
+
+  def check_numbers_are_the_same?(array)
+    numbers = []
+      array.each do |coordinate|
+        numbers << coordinate[1]
+      end
+      if numbers.uniq.length == 1
+        true
+      elsif numbers.uniq.length > 1
+        false
+      end
+  end
+
+  def valid_placement?(ship, array)
+    array.each do |cell|
+      if valid_coordinate?(cell) == false
+        return false
+      end
+    end
+    if array_equals_ship_length?(ship, array) == false
+      return false
+    end
+    if check_letters_are_the_same?(array) == true && check_the_numbers_are_consecutive?(array) == true
+      return true
+    elsif check_letters_are_consecutive?(array) == true && check_numbers_are_the_same?(array) == true
+      return true
+    else false
+    end
+
   end
 
 end
