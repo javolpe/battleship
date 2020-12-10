@@ -78,4 +78,34 @@ class BoardTest < Minitest::Test
     assert_equal expected, false
   end
 
+  def test_check_the_letters_are_consecutive_true
+    board = Board.new
+    expected = board.check_letters_are_consecutive?(["A3", "B2", "C3"])
+
+    assert_equal expected, true
+  end
+
+  def test_check_the_letters_are_consecutive_false
+    board = Board.new
+    expected = board.check_letters_are_consecutive?(["A3", "C2", "C3"])
+
+    assert_equal expected, false
+  end
+
+  def test_check_the_numbers_are_the_same_true
+    board = Board.new
+
+    expected = board.check_numbers_are_the_same?(["A1", "B1", "C1"])
+
+    assert_equal expected, true
+  end
+
+  def test_check_the_numbers_are_the_same_false
+    board = Board.new
+
+    expected = board.check_numbers_are_the_same?(["A1", "B2", "C1"])
+
+    assert_equal expected, false
+  end
+
 end

@@ -66,6 +66,27 @@ class Board
     numbers.each_cons(2).all? {|a, b| b == a + 1 }
   end
 
+  def check_letters_are_consecutive?(array)
+    letters = []
+    array.each do |coordinate|
+      letters << coordinate[0]
+    end
+
+    letters.each_cons(2).all? {|a, b| b.ord == (a.ord + 1)}  
+  end
+
+  def check_numbers_are_the_same?(array)
+    numbers = []
+      array.each do |coordinate|
+        numbers << coordinate[1]
+      end
+      if numbers.uniq.length == 1
+        true
+      elsif numbers.uniq.length > 1
+        false
+      end
+  end
+
 end
 
 # letters.each_cons(2) {|a, b| b.ord == a.ord + 1}
