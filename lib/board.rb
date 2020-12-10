@@ -94,22 +94,16 @@ class Board
     if array_equals_ship_length?(ship, array) == false
       return false
     end
-    if check_letters_are_the_same?(array) == true && check_the_numbers_are_consecutive?(array) == true
+    if check_letters_are_the_same?(array) && check_the_numbers_are_consecutive?(array)
       return true
-    elsif check_letters_are_consecutive?(array) == true && check_numbers_are_the_same?(array) == true
+    elsif check_letters_are_consecutive?(array) && check_numbers_are_the_same?(array)
       return true
     else false
     end
-
   end
 
+
+
+
+
 end
-
-# letters.each_cons(2) {|a, b| b.ord == a.ord + 1}
-
-
-  # valid_coordinate? function must be included in valid placement function
-  #     cell_array.each do |cell|
-  #        if valid_coordinate?(cell) == false
-  #         return false
-  #       end

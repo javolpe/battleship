@@ -140,6 +140,44 @@ class BoardTest < Minitest::Test
     assert_equal expected, true
   end
 
+  def test_placing_a_ship_cell_is_not_empty
+    board = Board.new
+    cruiser = Ship.new("Cruiser", 3)
+    board.place(cruiser, ["A1", "A2", "A3"])
+    cell_1 = board.cells["A1"]
+    cell_2 = board.cells["A2"]
+    cell_3 = board.cells["A3"]
+
+    assert_equal cell_1.empty?, false
+    assert_equal cell_2.empty?, false
+    assert_equal cell_3.empty?, false
+  end
+
+  def test_placing_a_ship_cell_on_proper_cells_contain_same_ship
+    board = Board.new
+    cruiser = Ship.new("Cruiser", 3)
+    board.place(cruiser, ["A1", "A2", "A3"])
+    cell_1 = board.cells["A1"]
+    cell_2 = board.cells["A2"]
+    cell_3 = board.cells["A3"]
+
+    assert_equal cell_1.ship == cell_2.ship, true
+    assert_equal cell_2.ship == cell_3.ship, true
+  end
+
+  def test_placing_a_ship_cell_on_proper_cells_contain_same_ship
+    board = Board.new
+    cruiser = Ship.new("Cruiser", 3)
+    board.place(cruiser, ["A1", "A2", "A3"])
+    cell_1 = board.cells["A1"]
+    cell_2 = board.cells["A2"]
+    cell_3 = board.cells["A3"]
+    cell_4 = board.cells["A4"]
+
+
+    assert_equal cell_3.ship == cell_4.ship, false
+  end
+
 
 
 end
