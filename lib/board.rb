@@ -33,12 +33,46 @@ class Board
     cells.keys.include?(coordinate)
   end
 
+
+
   def valid_placement?(ship, cell_array)
     if ship.length == cell_array.length
       true
     elsif ship.length != cell_array.length
       false
     end
+
+  end
+
+
+  def check_letters_are_the_same?(array)
+    letters = []
+      array.each do |coordinate|
+        letters << coordinate[0]
+      end
+      if letters.uniq.length == 1
+        true
+      elsif letters.uniq.length > 1
+        false
+      end
+  end
+
+  def check_the_numbers_are_consecutive?(array)
+    numbers = []
+    array.each do |coordinate|
+      numbers << coordinate[1].to_i
+    end
+
+    numbers.each_cons(2).all? {|a, b| b == a + 1 }
   end
 
 end
+
+# letters.each_cons(2) {|a, b| b.ord == a.ord + 1}
+
+
+  # valid_coordinate? function must be included in valid placement function
+  #     cell_array.each do |cell|
+  #        if valid_coordinate?(cell) == false
+  #         return false
+  #       end

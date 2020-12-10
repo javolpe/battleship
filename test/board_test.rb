@@ -49,5 +49,33 @@ class BoardTest < Minitest::Test
     assert_equal board.valid_placement?(cruiser, ["A1", "A2", "A3"]), true
   end
 
+  def test_check_the_letters_are_the_same_true
+    board = Board.new
+    expected = board.check_letters_are_the_same?(["A1", "A2", "A3"])
+
+    assert_equal expected, true
+  end
+
+  def test_check_the_letters_are_the_same_false
+    board = Board.new
+
+    expected = board.check_letters_are_the_same?(["B1", "A2", "A3"])
+
+    assert_equal expected, false
+  end
+
+  def test_check_the_numbers_are_consecutive_true
+    board = Board.new
+    expected = board.check_the_numbers_are_consecutive?(["B1", "A2", "A3"])
+
+    assert_equal expected, true
+  end
+
+  def test_check_the_numbers_are_consecutive_false
+    board = Board.new
+    expected = board.check_the_numbers_are_consecutive?(["B3", "A2", "A3"])
+
+    assert_equal expected, false
+  end
 
 end
