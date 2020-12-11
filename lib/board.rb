@@ -121,23 +121,16 @@ class Board
     if user == true
       puts "  1 2 3 4 \n" +
            "A #{cells["A1"].render(user)} #{cells["A2"].render(user)} #{cells["A3"].render(user)} #{cells["A4"].render(user)} \n" +
-           "B . . . . \n" +
-           "C . . . . \n" +
-           "D . . . . \n"
+           "B #{cells["B1"].render(user)} #{cells["B2"].render(user)} #{cells["B3"].render(user)} #{cells["B4"].render(user)} \n" +
+           "C #{cells["C1"].render(user)} #{cells["C2"].render(user)} #{cells["C3"].render(user)} #{cells["C4"].render(user)} \n" +
+           "D #{cells["D1"].render(user)} #{cells["D2"].render(user)} #{cells["D3"].render(user)} #{cells["D4"].render(user)} \n"
     elsif user == false
       puts "  1 2 3 4 \n" +
            "A . . . . \n" +
            "B . . . . \n" +
-           "C . . f . \n" +
+           "C . . . . \n" +
            "D . . . . \n"
     end
-
-    # if user == false
-    #   puts "  1 2 3 4 \n" +
-    #        "A #{cells[A1].render} #{cells[A2].render}#{cells[A3].render}#{cells[A4].render} \n" +
-    #        "B . . . . \n" +
-    #        "C . . . . \n" +
-    #        "D . . . . \n"
 
   end
 end
