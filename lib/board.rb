@@ -26,6 +26,7 @@ class Board
     }
   end
 
+
   def valid_coordinate?(coordinate)
     cells.keys.include?(coordinate)
   end
@@ -85,9 +86,16 @@ class Board
   def valid_placement?(ship, array)
     array.each do |cell|
       if valid_coordinate?(cell) == false
-        return false
+        return "non-valid coordiante"
       end
     end
+
+    array.each do |x|
+      if cells[x].empty? == false
+          return "cell contains other ship"
+      end
+    end
+
     if array_equals_ship_length?(ship, array) == false
       return false
     end
@@ -101,20 +109,13 @@ class Board
 
   def place(ship, array)
     if valid_placement?(ship, array) == false
-      return p "Improper placement of ship."
+      return p "Improper ship placement"
     end
 
     array.each do |x|
-      if cells[x].empty? == false
-          return p "A ship is already on that coordiante."
-      end
+      cells[x].place_ship(ship)
     end
 
-        array.each do |x|
-          p cells[x]
-
-      end
+  end
 end
-end
-
-require 'pry'; binding.pry
+require 'pry';binding.pry
