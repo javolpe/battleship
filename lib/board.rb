@@ -134,4 +134,3 @@ class Board
 
   end
 end
-require 'pry';binding.pry
