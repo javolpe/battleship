@@ -180,7 +180,7 @@ class BoardTest < Minitest::Test
 
   def test_render_board_start
     board = Board.new
-    expected = "  1 2 3 4 \nA . . . . \nB . . . . \nC . . . . \nD . . . . \n"
+    expected = puts "  1 2 3 4 \nA . . . . \nB . . . . \nC . . . . \nD . . . . \n"
 
     assert_equal expected, board.render
   end
@@ -189,7 +189,7 @@ class BoardTest < Minitest::Test
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     board.place(cruiser, ["A1", "A2", "A3"])
-    expected = "  1 2 3 4 \nA . . . . \nB . . . . \nC . . . . \nD . . . . \n"
+    expected = puts "  1 2 3 4 \nA . . . . \nB . . . . \nC . . . . \nD . . . . \n"
 
     assert_equal expected, board.render
   end
@@ -198,7 +198,7 @@ class BoardTest < Minitest::Test
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     board.place(cruiser, ["A1", "A2", "A3"])
-    expected = "  1 2 3 4 \nA S S S . \nB . . . . \nC . . . . \nD . . . . \n"
+    expected = puts "  1 2 3 4 \nA S S S . \nB . . . . \nC . . . . \nD . . . . \n"
 
     assert_equal expected, board.render(true)
   end

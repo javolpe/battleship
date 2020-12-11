@@ -126,10 +126,10 @@ class Board
            "D #{cells["D1"].render(user)} #{cells["D2"].render(user)} #{cells["D3"].render(user)} #{cells["D4"].render(user)} \n"
     elsif user == false
       puts "  1 2 3 4 \n" +
-           "A . . . . \n" +
-           "B . . . . \n" +
-           "C . . . . \n" +
-           "D . . . . \n"
+           "A #{cells["A1"].render} #{cells["A2"].render} #{cells["A3"].render} #{cells["A4"].render} \n" +
+           "B #{cells["B1"].render} #{cells["B2"].render} #{cells["B3"].render} #{cells["B4"].render} \n" +
+           "C #{cells["C1"].render} #{cells["C2"].render} #{cells["C3"].render} #{cells["C4"].render} \n" +
+           "D #{cells["D1"].render} #{cells["D2"].render} #{cells["D3"].render} #{cells["D4"].render} \n"
     end
 
   end
