@@ -8,7 +8,7 @@ class Board
   end
 
   def cells
-    grid = Hash.new
+
     cells = {
       "A1" => Cell.new("A1"),
       "A2" => Cell.new("A2"),
@@ -27,7 +27,10 @@ class Board
       "D3" => Cell.new("D3"),
       "D4" => Cell.new("D4")
     }
+
   end
+
+
 
   def valid_coordinate?(coordinate)
     cells.keys.include?(coordinate)
@@ -102,8 +105,23 @@ class Board
     end
   end
 
+  def place(ship, array)
+    if valid_placement?(ship, array) == false
+      return p "Improper placement of ship."
+    end
 
-
-
-
+    array.each do |x|
+      if cells[x].empty? == false
+          return p "A ship is already on that coordiante."
+      end
+    end
+    # array.each do |x|
+    #   cells[x].place_ship(ship)
+    # end
 end
+end
+
+
+
+
+require 'pry'; binding.pry

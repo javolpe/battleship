@@ -1,20 +1,25 @@
 require './lib/ship'
 
 class Cell
-  attr_accessor :received_shot
-
-  attr_reader   :coordinate,
+  attr_accessor :received_shot,
                 :ship
+
+
+  attr_reader   :coordinate
+
+
 
   def initialize(coordinate)
     @coordinate = coordinate
     @received_shot = false
+
   end
 
 
-  def place_ship(boat)
-    @ship = boat
+  def place_ship(ship)
+    @ship = ship
   end
+
 
 
   def empty?
