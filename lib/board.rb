@@ -3,13 +3,10 @@ require './lib/ship'
 
 
 class Board
+  attr_reader :cells
 
   def initialize
-  end
-
-  def cells
-
-    cells = {
+    @cells = {
       "A1" => Cell.new("A1"),
       "A2" => Cell.new("A2"),
       "A3" => Cell.new("A3"),
@@ -27,10 +24,7 @@ class Board
       "D3" => Cell.new("D3"),
       "D4" => Cell.new("D4")
     }
-
   end
-
-
 
   def valid_coordinate?(coordinate)
     cells.keys.include?(coordinate)
@@ -115,13 +109,12 @@ class Board
           return p "A ship is already on that coordiante."
       end
     end
-    # array.each do |x|
-    #   cells[x].place_ship(ship)
-    # end
+
+        array.each do |x|
+          p cells[x]
+
+      end
 end
 end
-
-
-
 
 require 'pry'; binding.pry
