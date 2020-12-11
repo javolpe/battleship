@@ -115,6 +115,29 @@ class Board
     array.each do |x|
       cells[x].place_ship(ship)
     end
+  end
+
+  def render(user = false)
+    if user == true
+      puts "  1 2 3 4 \n" +
+           "A #{cells["A1"].render(user)} #{cells["A2"].render(user)} #{cells["A3"].render(user)} #{cells["A4"].render(user)} \n" +
+           "B . . . . \n" +
+           "C . . . . \n" +
+           "D . . . . \n"
+    elsif user == false
+      puts "  1 2 3 4 \n" +
+           "A . . . . \n" +
+           "B . . . . \n" +
+           "C . . f . \n" +
+           "D . . . . \n"
+    end
+
+    # if user == false
+    #   puts "  1 2 3 4 \n" +
+    #        "A #{cells[A1].render} #{cells[A2].render}#{cells[A3].render}#{cells[A4].render} \n" +
+    #        "B . . . . \n" +
+    #        "C . . . . \n" +
+    #        "D . . . . \n"
 
   end
 end

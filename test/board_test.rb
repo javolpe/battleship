@@ -178,6 +178,29 @@ class BoardTest < Minitest::Test
     assert_equal cell_3.ship == cell_4.ship, false
   end
 
+  def test_render_board_start
+    board = Board.new
+    expected = "  1 2 3 4 \nA . . . . \nB . . . . \nC . . . . \nD . . . . \n"
 
+    assert_equal expected, board.render
+  end
+
+  def test_render_board_ships_hidden
+    board = Board.new
+    cruiser = Ship.new("Cruiser", 3)
+    board.place(cruiser, ["A1", "A2", "A3"])
+    expected = "  1 2 3 4 \nA . . . . \nB . . . . \nC . . . . \nD . . . . \n"
+
+    assert_equal expected, board.render
+  end
+
+  def test_render_board_ships_shown
+    board = Board.new
+    cruiser = Ship.new("Cruiser", 3)
+    board.place(cruiser, ["A1", "A2", "A3"])
+    expected = "  1 2 3 4 \nA S S S . \nB . . . . \nC . . . . \nD . . . . \n"
+
+    assert_equal expected, board.render(true)
+  end
 
 end
