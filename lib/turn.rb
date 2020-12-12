@@ -45,5 +45,21 @@ class Turn
       computer_submarine_coordinates << second_coordinate
     end
   end
-  submarine = Ship.new(submarine, computer_cruiser_coordinates)
+  submarine = Ship.new(submarine, computer_submarine_coordinates)
+
+  if computer_board.place(submarine, computer_submarine_coordinates) == false
+    computer_places_submarine
+  end
+
+  def computer_fires_shot
+    valid_shots = []
+    user_board.cells.each do |cell|
+      if cell.received_shot == false
+        valid_shots << cell
+      end
+    end
+    valid_shots = valid_shots.shuffle
+    current_shot = valid_shots[0]
+    user_board.current_shot.fire_upon  
+  end
 end
