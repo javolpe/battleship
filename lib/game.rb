@@ -41,33 +41,7 @@ end
 
   # set computer placement- needs te random
 
-  # def player_ship_placement
-  #   p "I have laid out my ships on the grid."
-  #   p "You now need to lay out your two ships."
-  #   p "The Cruiser is three units long and the Submarine is two units long."
-  #   p "Lets first place your Cruiser, please choose three connecting locations"
-  #   p "avoiding diagonals."
-  #   p board.render(user)
-  #   p "Location 1:"
-  #   p "> "
-  #   cruiser_1 = gets.chomp.upcase
-  #   p "Location 2:"
-  #   p ">"
-  #   cruiser_2 = gets.chomp.upcase
-  #   p "Location 3:"
-  #   p ">"
-  #   cruiser_3 = gets.chomp.upcase
-  #   p board.render(user)
-  #   p " Great! Now let's place your Submarine, please choose two connecting locations"
-  #   p "avoiding diagonals."
-  #   p "Location 1:"
-  #   p "> "
-  #   submarine_1 = gets.chomp.upcase
-  #   p "Location 2:"
-  #   p ">"
-  #   submarine_2 = gets.chomp.upcase
-  #   p board.render(user)
-  # end
+
 
 #while loop:
 #while there is no loser, the game keeps going
@@ -90,17 +64,6 @@ end
   #"=============COMPUTER BOARD============="
   #"==============PLAYER BOARD=============="
 
-  #Player choosing a coordinate to fire on
-
-  # p "Enter the coordinate for your shot:"
-  # p "> "
-
-    #valid_placement = false
-      # p Please enter a valid coordinate:
-
-  # p "> "
-  # fire = gets.chomp.upcase
-  # p "FIRE!"
 
   #state  if it was a miss or a hit
 
