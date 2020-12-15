@@ -54,9 +54,8 @@ class Player
     user_submarine = Ship.new("submarine", 2)
     if board.place(user_submarine, [submarine_1, submarine_2]) == false
       p "Improper ship placement"
-      p submarine_1
-      p submarine_2
-
+        sleep(2)
+        user_submarine_placement
     else
       p "==============USER BOARD=============="
       p board.render(true)
