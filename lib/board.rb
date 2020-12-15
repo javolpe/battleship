@@ -86,13 +86,13 @@ class Board
   def valid_placement?(ship, array)
     array.each do |cell|
       if valid_coordinate?(cell) == false
-        return "non-valid coordiante"
+        return false
       end
     end
 
     array.each do |x|
       if cells[x].empty? == false
-          return "cell contains other ship"
+          return false
       end
     end
 
@@ -109,7 +109,7 @@ class Board
 
   def place(ship, array)
     if valid_placement?(ship, array) == false
-      return p "Improper ship placement"
+      return false
     end
 
     array.each do |x|

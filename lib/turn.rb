@@ -66,40 +66,6 @@ class Turn
     user_board.current_shot.fire_upon
   end
 
-  def player_cruiser_placement
-    p "I have laid out my ships on the grid."
-    p "You now need to lay out your two ships."
-    p "The Cruiser is three units long and the Submarine is two units long."
-    p "Lets first place your Cruiser, please choose three connecting locations"
-    p "avoiding diagonals."
-    p board.render(true)
-    p "Location 1:"
-    p "> "
-    cruiser_1 = gets.chomp.upcase
-    p "Location 2:"
-    p ">"
-    cruiser_1 = gets.chomp.upcase
-    p "Location 3:"
-    p ">"
-    cruiser_3 = gets.chomp.upcase
-    user_cruiser = Ship.new("Cruiser", 3)
-    board.place(user_cruiser, ["#{cruiser_1}, #{cruiser_1}, #{cruiser_3}"])
-    p user_board.render(true)
-  end
-
-  def player_submarine_placement
-    p " Great! Now let's place your Submarine, please choose two connecting locations"
-    p "avoiding diagonals."
-    p "Location 1:"
-    p "> "
-    submarine_1 = gets.chomp.upcase
-    p "Location 2:"
-    p ">"
-    submarine_2 = gets.chomp.upcase
-    user_submarine = Ship.new("submarine", 3)
-    board.place(user_submarine, ["#{submarine_1}, #{submarine_1}"])
-    p user_board.render(true)
-  end
 
   def user_takes_shot
     p "Enter the coordinate for your shot:"
@@ -114,5 +80,11 @@ class Turn
       user_takes_shot
     end
   end
+
+
+
+
+
+
 
 end
