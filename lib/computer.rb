@@ -1,8 +1,7 @@
 require './lib/cell'
 require './lib/ship'
 require './lib/board'
-
-require 'pry'
+require './lib/player'
 
 class Computer
   attr_accessor :board
@@ -40,6 +39,7 @@ class Computer
     if board.place(cruiser, computer_cruiser_coordinates) == false
       computer_places_cruiser
     else
+      p "==============COMPUTER BOARD=============="
       p board.render(true)
     end
   end
@@ -66,10 +66,9 @@ class Computer
     if board.place(submarine, computer_submarine_coordinates) == false
       computer_places_submarine
     else
+      p "==============COMPUTER BOARD=============="
       p board.render(true)
     end
   end
 
 end
-
-binding.pry

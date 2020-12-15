@@ -1,6 +1,7 @@
 require './lib/cell'
 require './lib/ship'
 require './lib/board'
+require './lib/computer'
 
 require 'pry'
 
@@ -62,5 +63,18 @@ class Player
     end
   end
 
+  def user_takes_shot
+    p "Enter the coordinate for your shot:"
+    p "> "
+    shot = gets.chomp.upcase
 
+    if board.cells.keys.include?(shot) && comp.board.cells[shot].received_shot == false
+      p "FIRE!"
+      comp.board.cells[shot].fire_upon
+    else
+      p "Please enter a valid coordinate:"
+      sleep(2)
+      user_takes_shot
+    end
+  end
 end
