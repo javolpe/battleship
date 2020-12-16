@@ -5,7 +5,6 @@ require './lib/player'
 require './lib/computer'
 require './lib/game'
 
-
 user = Player.new("John Connor")
 comp = Computer.new("Skynet")
 
