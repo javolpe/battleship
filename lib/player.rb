@@ -14,6 +14,8 @@ class Player
   def initialize(name)
     @name      = name
     @board     = Board.new
+    @cruiser   = Ship.new("Cruiser", 3)
+    @submarine = Ship.new("Submarine", 2)
   end
 
   def user_cruiser_placement
@@ -21,7 +23,7 @@ class Player
     p "You now need to lay out your two ships."
     p "The Cruiser is three units long and the Submarine is two units long."
     p "Lets first place your Cruiser, please choose three connecting locations"
-    p "avoiding diagonals."
+    p "Avoiding diagonals."
     p "==============USER BOARD=============="
     p board.render(true)
     p "Location 1:"
@@ -44,8 +46,8 @@ class Player
   end
 
   def user_submarine_placement
-    p " Great! Now let's place your Submarine, please choose two connecting locations"
-    p "avoiding diagonals and your cruiser."
+    p "Great! Now let's place your Submarine, please choose two connecting locations"
+    p "Avoiding diagonals and your cruiser."
     p "Location 1:"
     p "> "
     submarine_1 = gets.chomp.upcase
@@ -55,10 +57,7 @@ class Player
     if board.place(@submarine, [submarine_1, submarine_2]) == false
       p "Improper ship placement"
         sleep(2)
-        user_submarine_placement
-    else
-      p "==============USER BOARD=============="
-      p board.render(true)
+        user_submarine_placement  
     end
   end
 
