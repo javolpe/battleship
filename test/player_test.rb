@@ -21,7 +21,4 @@ class PlayerTest < Minitest::Test
     assert_equal user.board.cells.keys.length, 16
   end
 
-  
-
-
 end
