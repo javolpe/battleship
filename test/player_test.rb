@@ -35,4 +35,17 @@ class PlayerTest < Minitest::Test
     assert_equal true, user.has_user_lost?
   end
 
+  def test_nil_has_user_lost?
+    computer = Computer.new("user")
+    user = Player.new("user")
+    user.board.place(user.cruiser, ["A1", "A2", "A3"])
+    user.board.place(user.submarine, ["B1", "B2"])
+    user.board.cells["A1"].fire_upon
+    user.board.cells["A2"].fire_upon
+    user.board.cells["A3"].fire_upon
+    user.board.cells["B1"].fire_upon
+
+    assert_equal nil, user.has_user_lost?
+  end
+
 end

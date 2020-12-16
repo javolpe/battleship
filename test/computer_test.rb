@@ -63,7 +63,7 @@ class ComputerTest < Minitest::Test
     assert_equal true, computer.has_computer_lost?
   end
 
-  def test_false_computer_has_lost?
+  def test_nil_computer_has_lost?
     computer = Computer.new("user")
     user = Player.new("user")
     user.board.place(computer.cruiser, ["A1", "A2", "A3"])
