@@ -68,13 +68,12 @@ class Player
     p "> "
     shot = gets.chomp.upcase
 
-    if board.cells.keys.include?(shot) && comp.board.cells[shot].received_shot == false
-      p "FIRE!"
-      comp.board.cells[shot].fire_upon
-    else
+    if board.cells.keys.include?(shot) == false
       p "Please enter a valid coordinate:"
       sleep(2)
       user_takes_shot
+    else
+      shot   
     end
   end
 end

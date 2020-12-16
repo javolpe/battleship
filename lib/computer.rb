@@ -3,6 +3,7 @@ require './lib/ship'
 require './lib/board'
 require './lib/player'
 
+
 class Computer
   attr_accessor :board
 
