@@ -9,10 +9,34 @@ require './lib/computer'
 class Game
   attr_reader :user,
               :comp
+
    def initialize(user, comp)
     @user = user
     @comp = comp
    end
+
+   def user_fires
+     shot = user.user_takes_shot
+     if comp.board.cells[shot].received_shot == false
+       p "FIRE!"
+       comp.board.cells[shot].fire_upon
+     else
+       user_fires
+     end
+  end
+
+  def computer_fires
+    valid_shots = []
+    user.board.cells.keys.each do |cell|
+      if user.board.cells[cell].received_shot == false
+        valid_shots << cell
+      end
+    end
+    shot = valid_shots.shuffle[0]
+    user.board.cells[shot].fire_upon
+    p "My shot on #{shot}."
+  end
+
 
   # def start
   #   p "Welcome to BATTLESHIP"
@@ -32,7 +56,6 @@ class Game
   # if play == 'q'
   #
   # end
-
 
 end
 
