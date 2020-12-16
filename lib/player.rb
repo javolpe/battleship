@@ -6,13 +6,14 @@ require './lib/computer'
 require 'pry'
 
 class Player
-  attr_accessor :board
-
-  attr_reader   :name
+  attr_reader   :name,
+                :board,
+                :cruiser,
+                :submarine
 
   def initialize(name)
-    @name = name
-    @board = Board.new
+    @name      = name
+    @board     = Board.new
   end
 
   def user_cruiser_placement
@@ -32,8 +33,7 @@ class Player
     p "Location 3:"
     p ">"
     cruiser_3 = gets.chomp.upcase
-    user_cruiser = Ship.new("Cruiser", 3)
-    if board.place(user_cruiser, [cruiser_1, cruiser_2, cruiser_3]) == false
+    if board.place(@cruiser, [cruiser_1, cruiser_2, cruiser_3]) == false
       p "Improper ship placement"
       sleep(2)
         user_cruiser_placement
@@ -52,8 +52,7 @@ class Player
     p "Location 2:"
     p ">"
     submarine_2 = gets.chomp.upcase
-    user_submarine = Ship.new("submarine", 2)
-    if board.place(user_submarine, [submarine_1, submarine_2]) == false
+    if board.place(@submarine, [submarine_1, submarine_2]) == false
       p "Improper ship placement"
         sleep(2)
         user_submarine_placement
@@ -73,7 +72,13 @@ class Player
       sleep(2)
       user_takes_shot
     else
-      shot   
+      shot
+    end
+  end
+
+  def has_user_lost?
+    if cruiser.health == 0 && submarine.health == 0
+      true
     end
   end
 end

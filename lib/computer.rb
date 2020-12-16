@@ -5,13 +5,16 @@ require './lib/player'
 
 
 class Computer
-  attr_accessor :board
-
-  attr_reader   :name
+  attr_reader   :name,
+                :cruiser,
+                :submarine,
+                :board
 
   def initialize(name)
     @name = name
     @board = Board.new
+    @cruiser   = Ship.new("Cruiser", 3)
+    @submarine = Ship.new("Submarine", 2)
   end
 
   def computer_places_cruiser
@@ -35,9 +38,7 @@ class Computer
       computer_cruiser_coordinates << third_coordinate
     end
 
-    cruiser = Ship.new("comp_cruiser", 3)
-
-    if board.place(cruiser, computer_cruiser_coordinates) == false
+    if board.place(@cruiser, computer_cruiser_coordinates) == false
       computer_places_cruiser
     else
       p "==============COMPUTER BOARD=============="
@@ -62,13 +63,17 @@ class Computer
       computer_submarine_coordinates << second_coordinate
     end
 
-    submarine = Ship.new("comp_submarine", 2)
-
-    if board.place(submarine, computer_submarine_coordinates) == false
+    if board.place(@submarine, computer_submarine_coordinates) == false
       computer_places_submarine
     else
       p "==============COMPUTER BOARD=============="
       p board.render(true)
+    end
+  end
+
+  def has_computer_lost?
+    if cruiser.health == 0 && submarine.health == 0
+      true
     end
   end
 
