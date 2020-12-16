@@ -4,23 +4,17 @@ class Cell
   attr_accessor :received_shot,
                 :ship
 
-
   attr_reader   :coordinate
 
-
-
   def initialize(coordinate)
-    @coordinate = coordinate
+    @coordinate    = coordinate
     @received_shot = false
-
   end
 
 
   def place_ship(ship)
     @ship = ship
   end
-
-
 
   def empty?
     if @ship == nil
@@ -36,9 +30,9 @@ class Cell
 
   def fire_upon
     @received_shot = true
-      if @ship.nil? == false
-        ship.hit
-      end
+    if @ship.nil? == false
+      ship.hit
+    end
   end
 
 

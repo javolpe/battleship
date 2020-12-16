@@ -57,7 +57,7 @@ class Player
     if board.place(@submarine, [submarine_1, submarine_2]) == false
       p "Improper ship placement"
         sleep(2)
-        user_submarine_placement  
+        user_submarine_placement
     end
   end
 

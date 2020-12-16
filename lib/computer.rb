@@ -11,8 +11,8 @@ class Computer
                 :board
 
   def initialize(name)
-    @name = name
-    @board = Board.new
+    @name      = name
+    @board     = Board.new
     @cruiser   = Ship.new("Cruiser", 3)
     @submarine = Ship.new("Submarine", 2)
   end
@@ -51,12 +51,12 @@ class Computer
     coordinate_array = board.cells.keys
 
     if result[0] == 1
-      first_coordinate = coordinate_array.shuffle[0]
+      first_coordinate  = coordinate_array.shuffle[0]
       second_coordinate = "#{first_coordinate[0]}#{first_coordinate[1].to_i + 1}"
       computer_submarine_coordinates << first_coordinate
       computer_submarine_coordinates << second_coordinate
     else
-      first_coordinate = coordinate_array.shuffle[0]
+      first_coordinate  = coordinate_array.shuffle[0]
       second_coordinate = first_coordinate[0].next + first_coordinate[1]
       computer_submarine_coordinates << first_coordinate
       computer_submarine_coordinates << second_coordinate
