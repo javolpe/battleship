@@ -13,9 +13,9 @@ attr_reader   :user,
               :comp
 
    def initialize(user, comp)
-    @user  = user
-    @comp  = comp
-    @loser = false
+    @user         = user
+    @comp         = comp
+    @loser        = false
     @user_message = ""
     @comp_message = ""
    end
@@ -24,7 +24,7 @@ attr_reader   :user,
    def start
      p "Welcome to BATTLESHIP"
      p "Enter p to play. Enter q to quit."
-      p "> "
+    p "> "
      play = gets.chomp.downcase
 
      if play == "p"

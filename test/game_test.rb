@@ -40,6 +40,7 @@ class GameTest < Minitest::Test
       end
       array
     end
+
     assert_equal 1, array.count
   end
 

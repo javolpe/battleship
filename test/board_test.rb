@@ -58,7 +58,6 @@ class BoardTest < Minitest::Test
 
   def test_check_the_letters_are_the_same_false
     board = Board.new
-
     expected = board.check_letters_are_the_same?(["B1", "A2", "A3"])
 
     assert_equal expected, false
@@ -94,7 +93,6 @@ class BoardTest < Minitest::Test
 
   def test_check_the_numbers_are_the_same_true
     board = Board.new
-
     expected = board.check_numbers_are_the_same?(["A1", "B1", "C1"])
 
     assert_equal expected, true
@@ -102,7 +100,6 @@ class BoardTest < Minitest::Test
 
   def test_check_the_numbers_are_the_same_false
     board = Board.new
-
     expected = board.check_numbers_are_the_same?(["A1", "B2", "C1"])
 
     assert_equal expected, false
@@ -173,7 +170,6 @@ class BoardTest < Minitest::Test
     cell_2 = board.cells["A2"]
     cell_3 = board.cells["A3"]
     cell_4 = board.cells["A4"]
-
 
     assert_equal cell_3.ship == cell_4.ship, false
   end

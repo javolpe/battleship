@@ -110,6 +110,4 @@ class CellTest < Minitest::Test
     assert_equal cell.render(true), "S"
   end
 
-
-
 end

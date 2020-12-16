@@ -30,7 +30,7 @@ class ComputerTest < Minitest::Test
         array << key
       end
       array
-  end
+    end
 
     assert_equal 3, array.count
   end
@@ -44,7 +44,7 @@ class ComputerTest < Minitest::Test
         array << key
       end
       array
-  end
+    end
 
     assert_equal 2, array.count
   end
